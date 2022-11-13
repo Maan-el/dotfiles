@@ -39,3 +39,9 @@ unset rc
 # Brown       0;33     Yellow        1;33
 # Light Gray  0;37     White         1;37
 PS1="\[\033[1;35m\][\$(date +%H'h:'%M)][\u@\h: \w]$\[\033[0m\] "
+
+## Testa a conexão
+
+net() {
+	ping ubuntu.com
+}
