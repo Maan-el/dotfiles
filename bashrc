@@ -45,3 +45,8 @@ PS1="\[\033[1;35m\][\$(date +%H'h:'%M)][\u@\h: \w]$\[\033[0m\] "
 chnet() {
 	ping ubuntu.com
 }
+
+upd() {
+	sudo dnf update
+	flatpak update
+}
