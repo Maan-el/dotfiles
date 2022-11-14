@@ -50,3 +50,4 @@ upd() {
 	sudo dnf update
 	flatpak update
 }
+
