@@ -26,6 +26,11 @@ fi
 
 unset rc
 
+
+#### User Area
+
+
+
 . "$HOME/.cargo/env"
 
 ## Colors for terminal prompt
@@ -40,14 +45,9 @@ unset rc
 # Light Gray  0;37     White         1;37
 PS1="\[\033[1;35m\][\$(date +%H'h:'%M)][\u@\h: \w]$\[\033[0m\] "
 
-## Testa a conexão
-
-chnet() {
-	ping ubuntu.com
-}
-
 upd() {
 	sudo dnf update
+	rustup update
 	flatpak update
 }
 
