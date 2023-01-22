@@ -82,3 +82,13 @@
 # Os estados disponíveis para o processador são encontrados com o comando:
 # cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
 #
+#
+# ###
+#
+# Sistema para de ligar na Kernel 6.1+
+# Congelei na 6.0.18 com o comando 
+# 
+# sudo dnf versionlock kernel-6.0.18-300.fc37
+#
+#
+

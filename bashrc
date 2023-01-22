@@ -51,3 +51,10 @@ upd() {
 	flatpak update
 }
 
+
+alias yt-dl-musica="yt-dlp --extract-audio --audio-quality 0 -P \"Música\""
+alias suspend="systemctl suspend"
+alias inst="sudo dnf install"
+alias unst="sudo dnf remove"
+
+export GTK_USE_PORTAL=1
