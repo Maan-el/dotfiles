@@ -27,11 +27,8 @@ fi
 unset rc
 
 
-#### User Area
+# user stuff
 
-
-
-. "$HOME/.cargo/env"
 
 ## Colors for terminal prompt
 #
@@ -45,16 +42,16 @@ unset rc
 # Light Gray  0;37     White         1;37
 PS1="\[\033[1;35m\][\$(date +%H'h:'%M)][\u@\h: \w]$\[\033[0m\] "
 
-upd() {
+upd () {
 	sudo dnf update
-	rustup update
+	#sudo snap refresh
 	flatpak uninstall --unused
 	flatpak update
 }
 
-
-alias yt-dl-musica="yt-dlp --extract-audio --audio-quality 0 -P \"Música\""
-alias suspend="systemctl suspend"
+alias vim="nvim"
+alias cpodium="flatpak run com.vscodium.codium "
+export EDITOR="nvim"
 alias inst="sudo dnf install"
 alias unst="sudo dnf remove"
 
