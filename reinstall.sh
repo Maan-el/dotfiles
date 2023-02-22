@@ -24,7 +24,7 @@ programas_dnf=(
 	"webextension-gsconnect"
 	"nautilus-gsconnect"
 # OS tools
-	"snapd"
+	#"snapd"
 	"unrar"
 	"openssl"
 	"openssh"
@@ -98,7 +98,7 @@ sudo dnf install -y ${dnf_repos[@]}
 sudo dnf update -y
 sudo dnf install -y ${programas_dnf[@]}
 
-sudo snap install -y ${programas_snap[@]}
+#sudo snap install -y ${programas_snap[@]}
 
 flatpak remote-add --if-not-exists ${flatpak_repos[@]}
 flatpak install flathub ${programas_flat[@]}

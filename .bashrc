@@ -43,7 +43,7 @@ unset rc
 PS1="\[\033[1;35m\][\$(date +%H'h:'%M)][\u@\h: \w]$\[\033[0m\] "
 
 upd () {
-	sudo snap refresh
+	#sudo snap refresh
 	sudo dnf update
 	flatpak uninstall --unused
 	flatpak update
