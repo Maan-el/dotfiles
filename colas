@@ -1,0 +1,9 @@
+# Compressão GNUtar
+## Comprime o arquivo de entrada, onde o -I permite especificar as flags do algoritmo de compressão
+tar -I "zstd -T0 -19" -cfv $saida.tar.zst $entrada  
+
+## Extrai o arquivo
+tar -xfv $archive
+
+## Verifica se houve corrompimento do arquivo
+tar -tf $archive
