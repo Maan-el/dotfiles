@@ -3,6 +3,9 @@
 fwupdmgr get-updates
 fwupdmgr get-upgrades
 
+sudo grubby --update-kernel=ALL --remove-args="amd_pstate.shared_mem=1"
+sudo grubby --update-kernel=ALL --args="amd_pstate=passive"
+
 programas_dnf=(
 # Games/Media
 	"wine"
@@ -10,7 +13,8 @@ programas_dnf=(
 	"steam"
 	"qbittorrent"
 	"vlc"
-	"waydroid"
+	## waydroid deixa o login _extremamente_ lento
+	#"waydroid"
 	"ffmpeg"
 # Gnome mods
 	"gnome-tweaks"
@@ -44,6 +48,10 @@ programas_dnf=(
 	"lldb"
 	"clang-tools-extra"
 	"java-1.8.0-openjdk"
+	"binutils-riscv64-linux-gnu"
+	"gcc-c++-riscv64-linux-gnu"
+	"gcc-riscv64-linux-gnu"
+	"qemu-user-static-riscv"
 )
 
 programas_flat=(
@@ -92,6 +100,9 @@ flatpak override --user com.vscodium.codium --no-talk-name=org.freedesktop.Flatp
 
 pip install --user ${progaramas_pip[@]}
 
-sudo grubby --update-kernel=ALL --remove-args="amd_pstate.shared_mem=1"
-sudo grubby --update-kernel=ALL --args="amd_pstate=passive"
+mv ~/.bashrc ~/.bashrc.bak
+mv ~/.bash_profile ~/.bash_profile.bak
+ln -s ~/.dotfiles/.bashrc ~/.bashrc
+ln -s ~/.dotfiles/bash_profile ~/.bash_profile
+
 
