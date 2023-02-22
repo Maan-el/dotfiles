@@ -43,8 +43,8 @@ unset rc
 PS1="\[\033[1;35m\][\$(date +%H'h:'%M)][\u@\h: \w]$\[\033[0m\] "
 
 upd () {
+	sudo snap refresh
 	sudo dnf update
-	#sudo snap refresh
 	flatpak uninstall --unused
 	flatpak update
 }
@@ -53,6 +53,9 @@ alias vim="nvim"
 alias cpodium="flatpak run com.vscodium.codium "
 alias inst="sudo dnf install"
 alias unst="sudo dnf remove"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 export EDITOR="nvim"
 

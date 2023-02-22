@@ -24,6 +24,7 @@ programas_dnf=(
 	"webextension-gsconnect"
 	"nautilus-gsconnect"
 # OS tools
+	"snapd"
 	"unrar"
 	"openssl"
 	"openssh"
@@ -66,6 +67,10 @@ programas_pip=(
 	"gallery-dl"
 )
 
+programas_snap=(
+	"bitwarden"
+)
+
 
 dnf_repos=(
 	"https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
@@ -92,6 +97,8 @@ firefox ${gnome_extensions[@]}
 sudo dnf install -y ${dnf_repos[@]}
 sudo dnf update -y
 sudo dnf install -y ${programas_dnf[@]}
+
+sudo snap install -y ${programas_snap[@]}
 
 flatpak remote-add --if-not-exists ${flatpak_repos[@]}
 flatpak install flathub ${programas_flat[@]}
