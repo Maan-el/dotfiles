@@ -51,9 +51,10 @@ upd () {
 
 alias vim="nvim"
 alias cpodium="flatpak run com.vscodium.codium "
-export EDITOR="nvim"
 alias inst="sudo dnf install"
 alias unst="sudo dnf remove"
+
+export EDITOR="nvim"
 
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
