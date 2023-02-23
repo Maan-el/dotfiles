@@ -25,6 +25,8 @@ programas_dnf=(
 	"nautilus-gsconnect"
 # OS tools
 	#"snapd"
+	"java-17-openjdk"
+	"shellcheck"
 	"unrar"
 	"openssl"
 	"openssh"
@@ -42,6 +44,16 @@ programas_dnf=(
 	"gparted"
 	"mesa-va-drivers-freeworld"
 # Dev tools
+	"emacs"
+	"discount"
+	"rust-analyzer"
+	"npm"
+	"sbcl"
+	"racket"
+	"java-17-openjdk-devel"
+	"shfmt"
+	"shellcheck"
+	"glslang"
 	"virt-manager"
 	"rust"
 	"cargo"
@@ -112,4 +124,6 @@ mv ~/.bash_profile ~/.bash_profile.bak
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/bash_profile ~/.bash_profile
 
-
+# Good old Doom Emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install

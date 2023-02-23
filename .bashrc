@@ -56,6 +56,7 @@ alias unst="sudo dnf remove"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias doom="~/.emacs.d/bin/doom"
 
 export EDITOR="nvim"
 
