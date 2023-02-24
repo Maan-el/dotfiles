@@ -7,7 +7,7 @@ sudo grubby --update-kernel=ALL --remove-args="amd_pstate.shared_mem=1"
 sudo grubby --update-kernel=ALL --args="amd_pstate=passive"
 
 programas_dnf=(
-# Games/Media
+	# Games/Media
 	"wine"
 	"lutris"
 	"steam"
@@ -16,14 +16,14 @@ programas_dnf=(
 	## waydroid deixa o login _extremamente_ lento
 	#"waydroid"
 	"ffmpeg"
-# Gnome mods
+	# Gnome mods
 	"gnome-tweaks"
 	"gnome-extensions-app"
 	"papirus-icon-theme"
 	"gnome-shell-extension-gsconnect"
 	"webextension-gsconnect"
 	"nautilus-gsconnect"
-# OS tools
+	# OS tools
 	#"snapd"
 	"java-17-openjdk"
 	"shellcheck"
@@ -31,7 +31,7 @@ programas_dnf=(
 	"openssl"
 	"openssh"
 	"rsync"
-	"neovim" 
+	"neovim"
 	"tree"
 	"tealdeer"
 	"fd-find"
@@ -43,7 +43,7 @@ programas_dnf=(
 	"powertop"
 	"gparted"
 	"mesa-va-drivers-freeworld"
-# Dev tools
+	# Dev tools
 	"emacs"
 	"discount"
 	"rust-analyzer"
@@ -83,7 +83,6 @@ programas_snap=(
 	"bitwarden"
 )
 
-
 dnf_repos=(
 	"https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
 	"https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
@@ -93,7 +92,6 @@ flatpak_repos=(
 	"flathub https://flathub.org/repo/flathub.flatpakrepo"
 )
 
-
 gnome_extensions=(
 	"https://extensions.gnome.org/extension/615/appindicator-support/"
 	"https://extensions.gnome.org/extension/5338/aylurs-widgets/"
@@ -102,22 +100,21 @@ gnome_extensions=(
 	"https://extensions.gnome.org/extension/3193/blur-my-shell/"
 )
 
-
 sudo dnf update -y
-firefox ${gnome_extensions[@]}
+firefox "${gnome_extensions[@]}"
 
-sudo dnf install -y ${dnf_repos[@]}
+sudo dnf install -y "${dnf_repos[@]}"
 sudo dnf update -y
-sudo dnf install -y ${programas_dnf[@]}
+sudo dnf install -y "${programas_dnf[@]}"
 
 #sudo snap install -y ${programas_snap[@]}
 
-flatpak remote-add --if-not-exists ${flatpak_repos[@]}
-flatpak install flathub ${programas_flat[@]}
+flatpak remote-add --if-not-exists "${flatpak_repos[@]}"
+flatpak install flathub "${programas_flat[@]}"
 
 flatpak override --user com.vscodium.codium --no-talk-name=org.freedesktop.Flatpak
 
-pip install --user ${progaramas_pip[@]}
+pip install --user "${programas_pip[@]}"
 
 mv ~/.bashrc ~/.bashrc.bak
 mv ~/.bash_profile ~/.bash_profile.bak
