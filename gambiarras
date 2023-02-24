@@ -12,7 +12,12 @@
 # Removi com o comando "sudo dnf versionlock delete <package_name>
 # 
 # ####
-#
+
+  Por algum motivo, eu estava tendo erros com o xdg-desktop-portal
+  Resolvi reinstalar
+  Resolveu meu problema de boot
+  _shrug_
+
 # Reinstalar o SciPy
 #
 # ####
