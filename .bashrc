@@ -58,9 +58,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias doom="~/.emacs.d/bin/doom"
 
-export EDITOR="nvim"
+export EDITOR="emacsclient"
 
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
-export GTK_USE_PORTAL=1
+#export GTK_USE_PORTAL=1
 
