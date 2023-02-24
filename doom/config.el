@@ -76,5 +76,8 @@
 ;; they are implemented.
 
 
+
+
 (add-to-list 'window-setup-hook #'toggle-frame-fullscreen)
 
+;; I can generate a list with the `list' function
