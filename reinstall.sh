@@ -124,3 +124,6 @@ ln -s ~/.dotfiles/bash_profile ~/.bash_profile
 # Good old Doom Emacs
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
+
+# Permite uso constante da memória comprimida
+echo "vm.swappiness = 150" >>/etc/sysctl.conf

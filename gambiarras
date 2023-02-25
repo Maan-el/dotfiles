@@ -18,15 +18,14 @@
   Resolveu meu problema de boot
   _shrug_
 
-# Reinstalar o SciPy
-#
 # ####
-#
-# VirtualBox
-# akmod-VirtualBox
-# VirtualBox-server
-# reinstalar o Java 17
-#
+
+  Prefiro que o meu sistema utilize a memoria RAM com compressão (ZRAM) ao inves da RAM normal
+  Editei o arquivo
+         /etc/sysctl.conf
+  E adicionei
+        vm.swappiness = 150
+
 # ####
 #
 # Fiz isso, valor original é 65530
