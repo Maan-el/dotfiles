@@ -33,6 +33,10 @@ nmcli device wifi show-password
 ## Info
 ifconfig
 
+## Portas
+Permite saber o que cada porta de conexão faz _default_
+/etc/services
+
 
 
 # RISC-V
