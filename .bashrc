@@ -6,9 +6,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -26,9 +25,7 @@ fi
 
 unset rc
 
-
 # user stuff
-
 
 ## Colors for terminal prompt
 #
@@ -42,8 +39,9 @@ unset rc
 # Light Gray  0;37     White         1;37
 PS1="\[\033[1;35m\][\$(date +%H'h:'%M)][\u@\h: \w]$\[\033[0m\] "
 
-upd () {
+upd() {
 	#sudo snap refresh
+	sudo fwupdmgr get-updates
 	sudo dnf update
 	flatpak uninstall --unused
 	flatpak update
@@ -63,4 +61,3 @@ export EDITOR="emacsclient"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
 #export GTK_USE_PORTAL=1
-
