@@ -13,6 +13,8 @@ programas_dnf=(
 	"steam"
 	"qbittorrent"
 	"vlc"
+	"gstreamer1-plugin-openh264"
+	"mozilla-openh264"
 	## waydroid deixa o login _extremamente_ lento
 	#"waydroid"
 	"ffmpeg"
@@ -103,6 +105,7 @@ gnome_extensions=(
 sudo dnf update -y
 firefox "${gnome_extensions[@]}"
 
+sudo dnf config-manager --set-enabled fedora-cisco-openh264
 sudo dnf install -y "${dnf_repos[@]}"
 sudo dnf update -y
 sudo dnf install -y "${programas_dnf[@]}"
