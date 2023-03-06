@@ -79,5 +79,15 @@
 
 
 (add-to-list 'window-setup-hook #'toggle-frame-fullscreen)
+;; (map! :mode
+;;       :desc "Changes hjkl to jklç so it becomes more comfortable to type on an ABNT2 keyboard"
+;;       :g
+;;       "j" #'evil-backward-char
+;;       "k" #'evil-next-line
+;;       "l" #'evil-previous-line
+;;       "ç" #'evil-forward-char)
 
 ;; I can generate a list with the `list' function
+;;
+;;`Space/Meta'`h'`k' calls `helpful.el', which is a buffer that tells me what function
+;; a key combination calls when pressed
