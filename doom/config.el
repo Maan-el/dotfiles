@@ -100,6 +100,7 @@
 
 (evil-define-key 'normal pdf-view-mode-map (kbd "k") 'pdf-view-next-page-command)
 (evil-define-key 'normal pdf-view-mode-map (kbd "l") 'pdf-view-previous-page-command)
+(evil-define-key 'normal pdf-view-mode-map (kbd "j") nil)
 
 ;; `evil-collection-pdf-view' isn't defined in doom, which causes error with `map!'
 ;; (map! :after evil
