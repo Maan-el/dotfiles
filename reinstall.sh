@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 fwupdmgr get-updates
 fwupdmgr get-upgrades
