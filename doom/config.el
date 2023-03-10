@@ -84,13 +84,7 @@
 
 (add-to-list 'window-setup-hook #'toggle-frame-fullscreen)
 
-(map! (:after pdf-mode
-              (;; TODO unbind `j'
-               :desc "Changes pdf mode to follow my ABNT2 config"
-               :map pdf-view-mode-map
-               "k" #'pdf-view-next-page-command
-               "l" #'pdf-view-previous-page-command))
-      (:after evil
+(map! (:after evil
               (:desc "Changes vim keys to the ABNT2 home row"
                :map evil-motion-state-map
                "j" #'evil-backward-char
@@ -103,8 +97,9 @@
                "k" #'evil-window-bottom
                "l" #'evil-window-up
                "ç" #'evil-window-right)))
-;; (evil-define-key 'normal pdf-view-mode-map (kbd "k") 'pdf-view-next-page-command)
-;; (evil-define-key 'normal pdf-view-mode-map (kbd "l") 'pdf-view-previous-page-command)
+
+(evil-define-key 'normal pdf-view-mode-map (kbd "k") 'pdf-view-next-page-command)
+(evil-define-key 'normal pdf-view-mode-map (kbd "l") 'pdf-view-previous-page-command)
 
 ;; `evil-collection-pdf-view' isn't defined in doom, which causes error with `map!'
 ;; (map! :after evil
