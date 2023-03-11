@@ -54,10 +54,9 @@ alias unst="sudo dnf remove"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias doom="~/.emacs.d/bin/doom"
 
 export EDITOR="emacsclient"
 
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 #export GTK_USE_PORTAL=1
