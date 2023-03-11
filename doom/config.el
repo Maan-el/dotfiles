@@ -84,20 +84,22 @@
 
 (add-to-list 'window-setup-hook #'toggle-frame-fullscreen)
 
-(map! (:after evil
-              (:desc "Changes vim keys to the ABNT2 home row"
-               :map evil-motion-state-map
-               "j" #'evil-backward-char
-               "k" #'evil-next-line
-               "l" #'evil-previous-line
-               "ç" #'evil-forward-char)
-              (:desc "Changes window to follow previous binding"
-               :map evil-window-map
-               "j" #'evil-window-left
-               "k" #'evil-window-bottom
-               "l" #'evil-window-up
-               "ç" #'evil-window-right)))
+;; Keymaps
+(map! :desc "Changing hjkl to jklç"
+      (:after evil
+              (:map evil-motion-state-map
+                    "j" #'evil-backward-char
+                    "k" #'evil-next-line
+                    "l" #'evil-previous-line
+                    "ç" #'evil-forward-char)
+              (:map evil-window-map
+                    "j" #'evil-window-left
+                    "k" #'evil-window-bottom
+                    "l" #'evil-window-up
+                    "ç" #'evil-window-right)))
 
+
+;; HACK evil-collection-pdf-maps is broken so I have to use the evil configs directly
 (evil-define-key 'normal pdf-view-mode-map (kbd "k") 'pdf-view-next-page-command)
 (evil-define-key 'normal pdf-view-mode-map (kbd "l") 'pdf-view-previous-page-command)
 (evil-define-key 'normal pdf-view-mode-map (kbd "j") nil)
@@ -108,6 +110,8 @@
 ;;       "k" #'evil-collection-pdf-view-next-line-or-next-page
 ;;       "l" #'evil-collection-pdf-view-previous-line-or-previous-page)
 
+
+(add-hook 'elfeed-search-mode-hook #'elfeed-update)
 
 ;; I can generate a list with the `list' function
 ;;
