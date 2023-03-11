@@ -88,6 +88,10 @@
 (map! :desc "Changing hjkl to jklç"
       (:after evil
               (:map evil-motion-state-map
+                    "h" nil
+                    "j" nil
+                    "k" nil
+                    "l" nil
                     "j" #'evil-backward-char
                     "k" #'evil-next-line
                     "l" #'evil-previous-line
@@ -96,7 +100,10 @@
                     "j" #'evil-window-left
                     "k" #'evil-window-bottom
                     "l" #'evil-window-up
-                    "ç" #'evil-window-right)))
+                    "ç" #'evil-window-right)
+              (:map magit-mode-map
+                    "k" #'evil-next-visual-line
+                    "l" #'evil-previous-visual-line)))
 
 
 ;; HACK evil-collection-pdf-maps is broken so I have to use the evil configs directly
