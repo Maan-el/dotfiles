@@ -16,7 +16,7 @@ programas_dnf=(
 	"gstreamer1-plugin-openh264"
 	"mozilla-openh264"
 	## waydroid deixa o login _extremamente_ lento
-	#"waydroid"
+	"waydroid"
 	"ffmpeg"
 	# Gnome mods
 	"gnome-tweaks"
@@ -88,6 +88,7 @@ programas_snap=(
 dnf_repos=(
 	"https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
 	"https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+# Helix editor
 )
 
 flatpak_repos=(
@@ -100,6 +101,8 @@ gnome_extensions=(
 	"https://extensions.gnome.org/extension/19/user-themes/"
 	"https://extensions.gnome.org/extension/7/removable-drive-menu/"
 	"https://extensions.gnome.org/extension/3193/blur-my-shell/"
+	"https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/"
+	"https://extensions.gnome.org/extension/4684/useless-gaps/"
 )
 
 sudo dnf update -y
