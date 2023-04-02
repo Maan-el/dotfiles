@@ -58,5 +58,5 @@ alias ....="cd ../../.."
 export EDITOR="emacsclient"
 
 export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
-#export GTK_USE_PORTAL=1
