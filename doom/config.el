@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-tokyo-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -78,6 +78,7 @@
 
 
 
+(after! org (setq! org-agenda-files '("$HOME/Documentos/org/agenda.org")))
 
 (after! centaur-tabs
   (setq centaur-tabs-style "wave"))
@@ -85,31 +86,53 @@
 (add-to-list 'window-setup-hook #'toggle-frame-fullscreen)
 
 ;; Keymaps
-(map! :desc "Changing hjkl to jklç"
-      (:after evil
-              (:map evil-motion-state-map
-                    "h" nil
-                    "j" nil
-                    "k" nil
-                    "l" nil
-                    "j" #'evil-backward-char
-                    "k" #'evil-next-line
-                    "l" #'evil-previous-line
-                    "ç" #'evil-forward-char)
-              (:map evil-window-map
-                    "j" #'evil-window-left
-                    "k" #'evil-window-bottom
-                    "l" #'evil-window-up
-                    "ç" #'evil-window-right)
-              (:map magit-mode-map
-                    "k" #'evil-next-visual-line
-                    "l" #'evil-previous-visual-line)))
+;; (map! :desc "Changing hjkl to jklç"
+;;       (:after evil
+;;               (:map evil-normal-state-map)
+;;               (:map evil-visual-state-map)
+;;               (:map magit-mode-map
+;;                     "h" nil
+;;                     "j" nil
+;;                     "k" nil
+;;                     "l" nil
+;;                     "j" #'evil-backward-char
+;;                     "k" #'evil-next-visual-line
+;;                     "l" #'evil-previous-visual-line
+;;                     "ç" #'evil-forward-char)
+;;               (:map evil-motion-state-map
+;;                     "h" nil
+;;                     "j" nil
+;;                     "k" nil
+;;                     "l" nil
+;;                     "j" #'evil-backward-char
+;;                     "k" #'evil-next-line
+;;                     "l" #'evil-previous-line
+;;                     "ç" #'evil-forward-char)
+;;               (:map evil-window-map
+;;                     "j" #'evil-window-left
+;;                     "k" #'evil-window-bottom
+;;                     "l" #'evil-window-up
+;;                     "ç" #'evil-window-right)))
 
 
 ;; HACK evil-collection-pdf-maps is broken so I have to use the evil configs directly
-(evil-define-key 'normal pdf-view-mode-map (kbd "k") 'pdf-view-next-page-command)
-(evil-define-key 'normal pdf-view-mode-map (kbd "l") 'pdf-view-previous-page-command)
-(evil-define-key 'normal pdf-view-mode-map (kbd "j") nil)
+;; HACK only works after a config reload
+;; (evil-define-key 'normal pdf-view-mode-map (kbd "k") 'pdf-view-next-page-command)
+;; (evil-define-key 'normal pdf-view-mode-map (kbd "l") 'pdf-view-previous-page-command)
+;; (evil-define-key 'normal pdf-view-mode-map (kbd "j") nil)
+
+;; (evil-define-key 'visual magit-mode-map (kbd "k") nil)
+;; (evil-define-key 'normal magit-mode-map (kbd "k") nil)
+;; (evil-define-key 'visual magit-mode-map (kbd "l") nil)
+;; (evil-define-key 'normal magit-mode-map (kbd "l") nil)
+;; (evil-define-key 'visual magit-mode-map (kbd "h") nil)
+;; (evil-define-key 'normal magit-mode-map (kbd "h") nil)
+;; (evil-define-key 'visual magit-mode-map (kbd "k") 'evil-next-visual-line)
+;; (evil-define-key 'normal magit-mode-map (kbd "k") 'evil-next-visual-line)
+;; (evil-define-key 'visual magit-mode-map (kbd "l") 'evil-previous-visual-line)
+;; (evil-define-key 'normal magit-mode-map (kbd "l") 'evil-previous-visual-line)
+
+(add-hook 'elfeed-search-mode-hook #'elfeed-update)
 
 ;; `evil-collection-pdf-view' isn't defined in doom, which causes error with `map!'
 ;; (map! :after evil
@@ -117,8 +140,6 @@
 ;;       "k" #'evil-collection-pdf-view-next-line-or-next-page
 ;;       "l" #'evil-collection-pdf-view-previous-line-or-previous-page)
 
-
-(add-hook 'elfeed-search-mode-hook #'elfeed-update)
 
 ;; I can generate a list with the `list' function
 ;;
