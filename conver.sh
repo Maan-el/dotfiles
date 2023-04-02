@@ -1,3 +1,5 @@
+#!/bin/env bash
+
 sorthelper=()
 for file in ./*; do
 	sorthelper+=("$(stat --printf "%Y    %n" -- "$file")")    
