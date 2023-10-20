@@ -1,14 +1,14 @@
 #!/bin/env bash
 
-sorthelper=()
-for file in ./*; do
-	sorthelper+=("$(stat --printf "%Y    %n" -- "$file")")    
-done
+if [[ ! "$(command -v rg)" ]]; then
+	echo "comando \"rg\" (ripgrep) não encontrado nesse sistema.";
+	exit 1
+fi
 
-sorted=()
-while read -d $'\0' elem; do
-	sorted+=("${elem:14}")
-done < <(printf '%s\0' "${sorthelper[@]}" | sort -z)
+if [[ ! "$(command -v fd)" ]]; then
+	echo "comando \"fd\" (fd-find) não encontrado nesse sistema.";
+	exit 1
+fi
 
 for file in "${sorted[@]}"; do
 	if [[ $file == *.png ]]; then
