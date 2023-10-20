@@ -1,64 +1,65 @@
-### É só desligar os serviços de localização
-## Este bug parece ter sido arrumado na kernel 6.1
-## Remover essa configuração quando a mesma lançar
-#
-# Wifi não funcionava em kernels pós 5.17, então modifiquei a config do grubby para pegar a segunda kernel no SSD
-# Usei o comando "sudo grubby --set-default-index=entry-index" para ir do index=0 (kerne mais nova) para o index=1
-# (segunda kernel no sistema)
-#
-# Utilizei o "dnf versionlock" para congelar a versão da Kernel instalada
-# Remover quando o linux 6.1 lançar
-#
-# Removi com o comando "sudo dnf versionlock delete <package_name>
-# 
+# WIFI
+- Wifi não funcionava em kernels após a 5.17 e antes da 6.1
+- Era necessário desligar os serviços de localização (GPS)
+
+Minha primeira solução foi usar o GRUB para usar a versão correta da kernel, no caso a 5.17
+``` Bash
+# index=0 => Kernel mais recente
+# Index=1 => Segunda kernel do sistema
+sudo grubby --set-default-index=entry-index
+```
+
+Para não ter conflitos, impedi que o sistema atualizasse a kernel usando este comando
+``` Bash
+sudo dnf versionlock <package_name>
+```
+
+Para voltar a atualizar o pacote, usei
+``` Bash
+sudo dnf versionlock delete <package_name>
+```
+
+# Não sei
+Por algum motivo, eu estava tendo erros com o xdg-desktop-portal
+Resolvi reinstalar
+Resolveu meu problema de boot
+_shrug_
+
 # ####
 
-  Por algum motivo, eu estava tendo erros com o xdg-desktop-portal
-  Resolvi reinstalar
-  Resolveu meu problema de boot
-  _shrug_
+Prefiro que o meu sistema utilize a memoria RAM com compressão (ZRAM) ao inves da RAM normal
+Editei o arquivo
+        /etc/sysctl.conf
+E adicionei
+      vm.swappiness = 150
 
-# ####
+# Map Count
+- Fiz isso, valor original é 65530
+``` Bash
+sysctl -w vm.max_map_count=262144
+```
 
-  Prefiro que o meu sistema utilize a memoria RAM com compressão (ZRAM) ao inves da RAM normal
-  Editei o arquivo
-         /etc/sysctl.conf
-  E adicionei
-        vm.swappiness = 150
 
-# ####
-#
-# Fiz isso, valor original é 65530
-# sysctl -w vm.max_map_count=262144
-#
-# ####
-#
-# Wine deixa arquivos .directory em .local/share/applications/wine/Programs/ 
-# E arquivos .menu em .config/menus/applications-merged/wine-*
-#
-# ####
-#
-# Coloquei um novo "controlador" (governor) de perfomance e estou rodando ele como daemon
-# auto-cpufreq (snap)
-#
-# #
-#
-# Sua pasta de configuração é:
-# /etc/auto-cpufreq.conf
-#
-# #
-#
-# Para ativá-lo (daemon), uso o comando:
-# sudo auto-cpufreq --install
-#
-# # 
-#
-# Para destivá-lo (daemon), uso o comando:
-# sudo auto-cpufreq --remove
-#
-# # 
-#
-# Os estados disponíveis para o processador são encontrados com o comando:
-# cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
-#
+# Wine
+Wine deixa arquivos .directory em .local/share/applications/wine/Programs/ 
+E arquivos .menu em .config/menus/applications-merged/wine-*
 
+
+# CPU
+- Coloquei um novo "controlador" (governor) de perfomance e estou rodando ele como daemon
+  - auto-cpufreq
+  - Pasta de configuração
+    - /etc/auto-cpufreq.conf
+
+Para ativá-lo (daemon), uso o comando:
+``` Bash
+sudo auto-cpufreq --install
+```
+Para destivá-lo (daemon), uso o comando:
+``` Bash
+sudo auto-cpufreq --remove
+```
+Os estados disponíveis para o processador são encontrados com o comando:
+``` Bash
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+```

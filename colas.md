@@ -16,12 +16,12 @@ tar -tf $archive
 
 
 # DNF
-## O número de kernels instalada é gerenciada no arquivo
+- O número de kernels instalada é gerenciada no arquivo
 /etc/dnf/dnf.conf 
 
-## Congelar a versão de um arquivo
+- Congelar a versão de um arquivo
 sudo dnf versionlock $PACKAGE
-## Remover congelamento
+- Remover congelamento
 sudo dnf versionlock remove $PACKAGE
 
 
@@ -43,5 +43,5 @@ Permite saber o que cada porta de conexão faz _default_
 ## OS
 xv6
 ### Dependencias
-#### qemu-user-static permite a execução de programas em arquiteturas diferentes
+- qemu-user-static permite a execução de programas em arquiteturas diferentes
 binutils-riscv64-linux-gnu gcc-c++-riscv64-linux-gnu gcc-riscv64-linux-gnu qemu-user-static-riscv
