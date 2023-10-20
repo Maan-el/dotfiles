@@ -26,6 +26,9 @@ for file in $(rg --sort modified -g '*.jpeg' -g '*.jpg' -g '*.png' -g '*.gif' -g
 	elif [[ $file == *.mp4 ]]; then
 		ffmpeg -i "$file" -c:v libaom-av1 -strict -2 "$(basename $file .mp4)".mkv &
 		wait;
+	elif [[ $file == *.webm ]]; then #TODO
+		cp "$file" "$(basename $file .webm)"1.webm &
+		wait;
 	fi
 done
 
