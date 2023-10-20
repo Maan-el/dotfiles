@@ -10,7 +10,7 @@ if [[ ! "$(command -v fd)" ]]; then
 	exit 1
 fi
 
-for file in "${sorted[@]}"; do
+for file in $(rg --sort modified -g '*.jpeg' -g '*.jpg' -g '*.png' -g '*.gif' -g '*.mp4' --files); do
 	if [[ $file == *.png ]]; then
 		cwebp -metadata all "$file" -o "$(basename $file .png )".webp &
 		wait;
