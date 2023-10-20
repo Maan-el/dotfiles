@@ -32,3 +32,5 @@ for file in $(rg --sort modified -g '*.jpeg' -g '*.jpg' -g '*.png' -g '*.gif' -g
 	fi
 done
 
+# Comando roda instantaneamente, por isso irei usá-lo ao iinvé de botar a saída do rg em uma variável
+fd . './' -e jpg -e png -e jpeg -e gif -e mp4 --exec-batch rm {};
