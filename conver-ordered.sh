@@ -28,13 +28,8 @@ for file in "${sorted[@]}"; do
 		wait
 		rm $file
 	elif [[ $file == *.mp4 ]]; then
-		cp "$file" "$(basename "$file" .mp4)"1.mp4 &
-		wait
-		rm $file
-	elif [[ $file == *.webm ]]; then
-		cp $file "$(basename $file .webm)"1.webm &
-		wait
-		rm $file
+		ffmpeg -i "$file" -c:v libaom-av1 -strict -2 "$(basename $file .mp4)".mkv &
+		wait;
 	fi
 done
 
